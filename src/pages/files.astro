@@ -1,0 +1,51 @@
+---
+const files = [{ name: "key.txt", href: "/key.txt", ext: "TXT" }];
+import "@/styles/global.css";
+---
+
+<body class="bg-[#0b0b0c] text-[#fafafa] font-sans antialiased">
+    <main class="max-w-3xl mx-auto p-6 pb-12">
+        <header class="mb-4">
+            <h1 class="text-2xl font-semibold mb-1">Downloads</h1>
+            <p class="text-sm text-gray-400">
+                Click any item to download the file.
+            </p>
+        </header>
+
+        <ul
+            role="list"
+            class="border border-neutral-800 rounded-2xl bg-white/6 backdrop-blur-md overflow-hidden"
+        >
+            {
+                files.map((file) => (
+                    <li>
+                        <a
+                            href={file.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`Download ${file.name}`}
+                            class="grid grid-cols-[auto_1fr_auto_auto] gap-3 items-center p-4 text-inherit border-b border-gray-800 bg-transparent
+                     hover:bg-white/5 focus:outline-none focus-visible:ring-4 focus-visible:ring-violet-500 last:border-b-0"
+                        >
+                            <span
+                                aria-hidden="true"
+                                class="grid place-items-center w-10 h-10 rounded-xl border border-gray-800 bg-white/6 text-xs tracking-wide text-gray-300"
+                            >
+                                {file.ext}
+                            </span>
+                            <span class="font-semibold truncate min-w-0">
+                                {file.name}
+                            </span>
+                            <span
+                                aria-hidden="true"
+                                class="text-neutral-300 text-sm opacity-90"
+                            >
+                                Download
+                            </span>
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+    </main>
+</body>

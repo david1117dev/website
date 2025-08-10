@@ -1,0 +1,56 @@
+---
+import "@/styles/global.css";
+import FloatingDock from "@/components/FloatingDock.tsx";
+import Background from "@/components/Background.astro";
+import { Title } from "@/components/Title";
+import { ClientRouter } from "astro:transitions";
+import Logo from "../assets/logo.svg";
+import { Image } from "astro:assets";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>David's website ^^</title>
+    <meta name="description" content="Cookie? Cookie!" />
+  </head>
+  <body
+    class="relative min-h-screen font-sans antialiased overflow-hidden bg-black"
+  >
+    <Background />
+
+    <ClientRouter />
+
+    <main class="relative z-10 mx-6 dark relative flex flex-col items-center text-center py-24">
+      <Image
+        src={Logo}
+        width="172"
+        height="72"
+        alt="Logo"
+        class="not-prose mb-10 md:mb-14"
+        loading="lazy"
+      />
+
+      <div
+        class="flex items-center gap-3 mb-6 text-3xl md:text-4xl whitespace-nowrap"
+      >
+        <Title
+          client:visible
+          words={[
+            "Hi, I'm",
+            "Ahoj, jsem",
+            "Bonjour, je suis",
+            "Salve, ego sum",
+          ]}
+        />
+        <h1 class="font-bold text-white">David :)</h1>
+      </div>
+      <slot />
+    </main>
+
+    <div class="fixed bottom-4 left-1/2 -translate-x-1/2 z-20">
+      <FloatingDock />
+    </div>
+  </body>
+</html>
