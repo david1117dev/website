@@ -13,7 +13,11 @@ import { Image } from "astro:assets";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <title>David's website ^^</title>
-    <meta name="description" content="Cookie? Cookie!" />
+    <meta name="description" content="Cookie! 🍪" />
+    <meta name="twitter:title" content="David's corner of the internet" />
+    <meta name="twitter:description" content="I eat cookies!" />
+    <meta name="twitter:image" content="https://david1117.dev/logo.svg" />
+    <meta name="twitter:card" content="david1117.dev" />
   </head>
   <body
     class="relative min-h-screen font-sans antialiased overflow-hidden bg-black"
@@ -22,7 +26,9 @@ import { Image } from "astro:assets";
 
     <ClientRouter />
 
-    <main class="relative z-10 mx-6 dark relative flex flex-col items-center text-center py-24">
+    <main
+      class="relative z-10 mx-6 dark relative flex flex-col items-center text-center py-24"
+    >
       <Image
         src={Logo}
         width="172"
